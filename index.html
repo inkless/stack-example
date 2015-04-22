@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://matb33.github.io/jquery-vertical-stack/ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>jquery.vertical-stack.js example</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<style type="text/css"></style>
+	<script type="text/javascript" src="js/jquery.vertical-stack.js"></script>
+	<style type="text/css">
+			body {
+				padding: 20px;
+				position: relative;
+				min-height: 2000px;
+			}
+
+			div {
+				padding: 20px;
+				border: 1px solid red;
+				background-color: #eee;
+			}
+
+			div.vstack-enabled {
+				background-color: #ccf;
+			}
+
+			div.vstack-stacked {
+				background-color: #cfc;
+			}
+		</style>
+</head>
+<body data-feedly-mini="yes">
+	<div id="d1">d1: Float left position fixed</div>
+	<div id="d2" data-vstack class="vstack-enabled">
+		<p>
+			d2: More stuff here in a p tag that floats right
+			<br>and a bit more text underneath to make it two lines</p>
+	</div>
+	<div id="d3">
+		d3:
+		<ul>
+			<li>List item #1</li>
+			<li>List item #2</li>
+			<li>List item #3</li>
+			<li>List item #4</li>
+		</ul>
+	</div>
+	<div id="d4" data-vstack class="vstack-enabled">
+		<p>d4: There's some testing going on:</p>
+		<p>Margin top of 10 pixels here</p>
+	</div>
+	<div id="d5" data-vstack class="vstack-enabled">d5: Big padding of 50 pixels at the bottom and floating left</div>
+	<div id="d6" >
+		<div>d6: Nested div and margin 100 pixels all around</div>
+	</div>
+	<div id="d7" data-vstack class="vstack-enabled">
+		d7:
+		<ol>
+			<li>Ordered List item #1</li>
+			<li>Ordered List item #2</li>
+			<li>Ordered List item #3</li>
+		</ol>
+	</div>
+
+	<script type="text/javascript">
+	(function() {
+		var lastDep = 'body';
+		$('[data-vstack]').each(function() {
+			$(this).attr('data-vstack', lastDep);
+			lastDep = '#' + $(this).attr('id');
+		});
+		$(window).verticalStack();
+	})();
+		
+	</script>
+
+</body>
+</html>
